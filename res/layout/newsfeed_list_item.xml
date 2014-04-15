@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:background="@color/sample_item_background" >
+
+    <ImageView
+        android:id="@+id/imageview_story_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:adjustViewBounds="true"
+        android:contentDescription="Photo"
+        android:cropToPadding="false"
+        android:maxHeight="70dp"
+        android:maxWidth="70dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/michael" />
+
+    <TextView
+        android:id="@+id/textview_story_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/imageview_story_photo"
+        android:padding="5dp"
+        android:text="Michael uploaded 5 photos."
+        android:textColor="#000000" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageview_story_photo"
+        android:layout_toRightOf="@+id/imageview_story_photo"
+        android:adjustViewBounds="true"
+        android:contentDescription="Like"
+        android:maxHeight="16dp"
+        android:maxWidth="16dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/like" />
+
+    <TextView
+        android:id="@+id/textview_story_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/imageView2"
+        android:layout_toRightOf="@+id/imageView2"
+        android:paddingLeft="2dp"
+        android:paddingTop="2dp"
+        android:text="Like"
+        android:textColor="@color/link_color"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/textview_story_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textview_story_like"
+        android:layout_alignBottom="@+id/textview_story_like"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="14dp"
+        android:paddingLeft="2dp"
+        android:paddingTop="2dp"
+        android:text="5m"
+        android:textColor="@color/counter_text_color"
+        android:textSize="12sp" />
+
+</RelativeLayout>
