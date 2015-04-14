@@ -1,26 +1,35 @@
-/*
- *  Copyright (c) 2014 Michael Berkovich, http://tr8nhub.com All rights reserved.
+/**
+ * Copyright (c) 2015 Translation Exchange, Inc. All rights reserved.
  *
- *  Permission is hereby granted, free of charge, to any person obtaining a copy
- *  of this software and associated documentation files (the "Software"), to deal
- *  in the Software without restriction, including without limitation the rights
- *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- *  copies of the Software, and to permit persons to whom the Software is
- *  furnished to do so, subject to the following conditions:
+ *  _______                  _       _   _             ______          _
+ * |__   __|                | |     | | (_)           |  ____|        | |
+ *    | |_ __ __ _ _ __  ___| | __ _| |_ _  ___  _ __ | |__  __  _____| |__   __ _ _ __   __ _  ___
+ *    | | '__/ _` | '_ \/ __| |/ _` | __| |/ _ \| '_ \|  __| \ \/ / __| '_ \ / _` | '_ \ / _` |/ _ \
+ *    | | | | (_| | | | \__ \ | (_| | |_| | (_) | | | | |____ >  < (__| | | | (_| | | | | (_| |  __/
+ *    |_|_|  \__,_|_| |_|___/_|\__,_|\__|_|\___/|_| |_|______/_/\_\___|_| |_|\__,_|_| |_|\__, |\___|
+ *                                                                                        __/ |
+ *                                                                                       |___/
+ * Permission is hereby granted, free of charge, to any person obtaining
+ * a copy of this software and associated documentation files (the
+ * "Software"), to deal in the Software without restriction, including
+ * without limitation the rights to use, copy, modify, merge, publish,
+ * distribute, sublicense, and/or sell copies of the Software, and to
+ * permit persons to whom the Software is furnished to do so, subject to
+ * the following conditions:
  *
- *  The above copyright notice and this permission notice shall be included in
- *  all copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
  *
- *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- *  THE SOFTWARE.
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+ * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+ * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+ * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-package com.tr8n.samples.wammer.activities;
+package com.translationexchange.samples.wammer.activities;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,15 +48,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.tr8n.android.activities.LanguageSelectorActivity;
-import com.tr8n.android.activities.Tr8nActivity;
-import com.tr8n.android.Tr8n;
-import com.tr8n.samples.wammer.R;
-import com.tr8n.samples.wammer.adapters.NavDrawerListAdapter;
-import com.tr8n.samples.wammer.fragments.NewsfeedFragment;
-import com.tr8n.samples.wammer.models.NavDrawerItem;
+import com.translationexchange.android.activities.LanguageSelectorActivity;
+import com.translationexchange.android.activities.LocalizedActivity;
+import com.translationexchange.android.Tml;
+import com.translationexchange.samples.wammer.R;
+import com.translationexchange.samples.wammer.adapters.NavDrawerListAdapter;
+import com.translationexchange.samples.wammer.fragments.NewsfeedFragment;
+import com.translationexchange.samples.wammer.models.NavDrawerItem;
 
-public class MainActivity extends Tr8nActivity {
+public class MainActivity extends LocalizedActivity {
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
@@ -97,12 +106,12 @@ public class MainActivity extends Tr8nActivity {
 				R.string.app_name // nav drawer close - description for accessibility
 		) {
 			public void onDrawerClosed(View view) {
-				getActionBar().setTitle(Tr8n.translate(currentViewTitle));
+				getActionBar().setTitle(Tml.translate(currentViewTitle));
 				// calling onPrepareOptionsMenu() to show action bar icons
 				invalidateOptionsMenu();
 			}
 			public void onDrawerOpened(View drawerView) {
-				getActionBar().setTitle(Tr8n.translate("Main Menu"));
+				getActionBar().setTitle(Tml.translate("Main Menu"));
 				// calling onPrepareOptionsMenu() to hide action bar icons
 				invalidateOptionsMenu();
 			}
@@ -133,7 +142,7 @@ public class MainActivity extends Tr8nActivity {
 		    	startActivity(new Intent(MainActivity.this, LanguageSelectorActivity.class));
 				return true;
 			case R.id.inline_translator:
-				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Tr8n.getSession().getApplication().getHost() + "/mobile/login")));				
+				startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(Tml.getSession().getApplication().getHost() + "/mobile/login")));				
 //		    	startActivity(new Intent(MainActivity.this, InAppTranslatorActivity.class));
 				return true;
 			default:
@@ -170,7 +179,7 @@ public class MainActivity extends Tr8nActivity {
 			FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager.beginTransaction().replace(R.id.frame_container, fragment).commit();
 			currentViewTitle = item.getTitle();
-			getActionBar().setTitle(Tr8n.translate(currentViewTitle));
+			getActionBar().setTitle(Tml.translate(currentViewTitle));
 			
 			mDrawerList.setItemChecked(position, true);
 			mDrawerList.setSelection(position);
@@ -201,9 +210,9 @@ public class MainActivity extends Tr8nActivity {
 	}
 	
 	@Override
-	public void onTr8nTranslate() {
+	public void onLocalize() {
 		((NavDrawerListAdapter)mDrawerList.getAdapter()).notifyDataSetChanged();
-		getActionBar().setTitle(Tr8n.translate(currentViewTitle));
+		getActionBar().setTitle(Tml.translate(currentViewTitle));
 	}
 
 	@Override

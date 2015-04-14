@@ -2,24 +2,24 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.tr8nhub</groupId>
-	<artifactId>samples-wammer-android</artifactId>
-	<version>0.1.0</version>
+	<groupId>com.translationexchange</groupId>
+	<artifactId>tml-android-samples-wammer</artifactId>
+	<version>0.2.1</version>
 	<packaging>apk</packaging>
 
-  <name>tr8n-samples-wammer-android</name>
-  <url>https://github.com/tr8n/tr8n_samples_wammer_android</url>
+  <name>tml-android-samples-wammer</name>
+  <url>https://github.com/translationexchange/tml-java-android-samples-wammer</url>
   <inceptionYear>2014</inceptionYear>
 
   <organization>
-    <name>Tr8nHub</name>
-    <url>https://tr8nhub.com</url>
+    <name>Translation Exchange, Inc</name>
+    <url>http://translationexchange.com</url>
   </organization>
 
   <developers>
     <developer>
       <name>Michael Berkovich</name>
-      <email>michael@tr8nhub.com</email>
+      <email>michael@translationexchange.com</email>
     </developer>
   </developers>
 
@@ -45,9 +45,9 @@
 			<scope>provided</scope>
 		</dependency>
     <dependency>
-      <groupId>com.tr8nhub</groupId>
-      <artifactId>android-clientsdk</artifactId>
-      <version>0.1.0</version>
+      <groupId>com.translationexchange</groupId>
+      <artifactId>tml-android</artifactId>
+      <version>0.2.1</version>
     </dependency>
   </dependencies>
   
